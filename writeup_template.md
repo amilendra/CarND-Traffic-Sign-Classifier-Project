@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
-[image9]: ./examples/examples/visualization_oneofeach.png "One Image for each Label"
+[image9]: ./examples/visualization_oneofeach.png "One Image for each Label"
 [image10]: ./examples/image.png "Original Keep Right Image"
 [image11]: ./examples/image_gs.png "Grayscaled Keep Right Image"
 [image12]: ./examples/image_norm.png "Normalized Keep Right Image"
