@@ -27,6 +27,12 @@ The goals / steps of this project are the following:
 [image10]: ./examples/image.png "Original Keep Right Image"
 [image11]: ./examples/image_gs.png "Grayscaled Keep Right Image"
 [image12]: ./examples/image_norm.png "Normalized Keep Right Image"
+[image13]: ./fromweb/3.jpg "Speed limit (60km/h)"
+[image14]: ./fromweb/19.jpg "Dangerous curve to the left"
+[image15]: ./fromweb/23.jpg "Slippery road"
+[image16]: ./fromweb/25.jpg "Road work"
+[image17]: ./fromweb/38.jpg "Keep right"
+[image18]: ./fromweb/39.jpg "Keep left"
 
 
 ## Rubric Points
@@ -132,42 +138,47 @@ My final model results were:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image13] ![alt text][image14] ![alt text][image15] 
+![alt text][image16] ![alt text][image17] ![alt text][image18]
 
-The first image might be difficult to classify because ...
+The first image (Speed limit (60km/h) might be difficult to classify because there are other images that are similar and change among each other only by the numbers in them.
+The other images seem to have distint characteristics so should be easier to predict, provided that enough test images of good quality are available.
+
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Image					        |     Prediction	        				| 
+|:-----------------------------:|:-----------------------------------------:| 
+| Speed limit (60km/h)			| Speed limit (50km/h)   					| 
+| Dangerous curve to the left	| Dangerous curve to the left				|
+| Slippery road					| Slippery road								|
+| Road Work	      				| Road Work					 				|
+| Keep Left						| Keep Left      							|
+| Keep Right					| Keep Right      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 5 of the 6 traffic signs, which gives an accuracy of 83.33%. This compares favorably to the accuracy on the test set of 91%
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is relatively sure that this is a Road work sign (probability of 0.54), and the image does contain a Road work sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| .54         			| Road Work   									| 
+| .49     				| Keep Right 									|
+| .47					| Keep Left										|
+| .56	      			| Slippery Road					 				|
+| .46				    | Speed limit (50km/h) 							|
+| .57				    | Dangerous curve to the left					|
 
 
-For the second image ... 
+The image with the lowest probability (0.46) was the one that the model got wrong. 
+As expected it was the Speed limit (60km/h) image, when the model predicted it to be a  Speed limit (50km/h) image. Considering that 50 is so similar to 60, it is a pretty good guess though.
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
