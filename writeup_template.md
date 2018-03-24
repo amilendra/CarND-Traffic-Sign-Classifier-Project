@@ -15,7 +15,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
+[image1]: ./examples/visualization_barchat_trainingset.png "Visualization Bar Chat of the Test Image Set"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
@@ -23,6 +23,11 @@ The goals / steps of this project are the following:
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image9]: ./examples/examples/visualization_oneofeach.png "One Image for each Label"
+[image10]: ./examples/image.png "Original Keep Right Image"
+[image11]: ./examples/image_gs.png "Grayscaled Keep Right Image"
+[image12]: ./examples/image_norm.png "Normalized Keep Right Image"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -49,32 +54,29 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. It is a bar chart showing how the data in the training data set is spread across each of the 43 labels. We can see that the number of images is not uniformly distributed over the image label. Some images have over 2000 training images but some have less than 250. This should affect the accurary when predicting images with lesser training data.
 
 ![alt text][image1]
+
+I plotted one image for each label(unsorted) to get an idea of what type of signs are we trying to predict. 
+![alt text][image9]
+
+My first impression is the quality of the images are very poor, with blurred focusing, extremely low lighting conditions making it difficult to classity even to a human who did not know what the images are.
 
 ### Design and Test a Model Architecture
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
+As a first step, I decided to convert the images to grayscale because rather than color, most of the information in the images are in the intensity of the light.
 
 Here is an example of a traffic sign image before and after grayscaling.
 
-![alt text][image2]
+![alt text][image10]
+![alt text][image11]
 
-As a last step, I normalized the image data because ...
-
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
+As a last step, I normalized the image data because some images clearly have low intensity, so averaging intensities of the images bring out the feature more clearly.
+![alt text][image10]
+![alt text][image12]
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
