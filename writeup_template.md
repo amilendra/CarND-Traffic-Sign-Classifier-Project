@@ -99,34 +99,32 @@ My final model consisted of the following layers:
 | Fully connected		| input 120, output 84        					|
 | RELU					|												|
 | Fully connected		| input 84, output 43        					|
-|						|												|
-|						|												|
- 
+
 
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I used a LeNet architecture.
+I used the same architecture as the one given as an example for analysing the MNIST database. Other than changing the number of output classes from 10 to 43, other parameters were left unchanged.
+
+I used an AdamOptimizer with a learning rate of 0.001 which was also used in the example. The epochs used was 30(original was 20) while the batch size was left unchanged at 128.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
+I increased the number of epochs because that ensured the validation accuracy remained stable above the 0.93 accuracy that was required in the assignment.
+
+At first I only added a grayscale transformation for the preprocessing step, but that did not improve results much. Looking at some sample images made me realize that normalization is required because of the poor lighting conditions, and as I thought adding the normalization step gave me the required. I tried using the built-in cv2.normalize(div,div,0,255,cv2.NORM_MINMAX) to normalize but it did not give me the required accuracy. So I had to come up with the normalization step myself after going through some examples in the internet.
+
+To account for the fact that some images had poor quality, I tried adding a dropout layer but that did not improve accuracy too much so I gave up on that.
+I was considering augmenting the data because of the un-uniformness of the distribution,
+but I was already getting the required accuracy level without it so decided to go without that because I am already way behind the deadline.
+
+
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 100%
+* validation set accuracy of 94%
+* test set accuracy of 92%
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
 
 ### Test a Model on New Images
 
