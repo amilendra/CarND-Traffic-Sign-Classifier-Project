@@ -64,7 +64,8 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 ![alt text][image1]
 
-I plotted one image for each label(unsorted) to get an idea of what type of signs are we trying to predict. 
+I plotted one image for each label(unsorted) to get an idea of what type of signs are we trying to predict.
+
 ![alt text][image9]
 
 My first impression is the quality of the images are very poor, with blurred focusing, extremely low lighting conditions making it difficult to classity even to a human who did not know what the images are.
